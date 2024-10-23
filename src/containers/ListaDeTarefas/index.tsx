@@ -12,7 +12,7 @@ const tarefas = [
     titulo: 'pagar net',
     descricao: 'Pegar fatura',
     prioridade: 'urgente',
-    status: 'concluida'
+    status: 'concluída'
   },
   {
     titulo: 'Ir para a capoeira',
