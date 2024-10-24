@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 export type Props = {
-  ativo?: boolean
+  ativo?: boolean | string
   contador: number
   legenda: string
 }

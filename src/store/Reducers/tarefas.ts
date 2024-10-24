@@ -9,7 +9,7 @@ const initialState: TarefaState = {
   itens: [
     {
       id: 1,
-      descricao: 'Estudar JavaScript',
+      descricao: 'Estudar JavaScriptdasdasdasdasdasd',
       prioridade: enums.Prioridade.NORMAL,
       status: enums.Status.CONCLUIDA,
       titulo: 'Estudar JavaScript'
@@ -36,11 +36,23 @@ const tarefasSlice = createSlice({
   initialState: initialState,
   reducers: {
     remover: (state, action: PayloadAction<number>) => {
-      state.itens = state.itens.filter((tarefa) => tarefa.id !== action.payload)
+      state.itens = [
+        ...(state.itens = state.itens.filter(
+          (tarefa) => tarefa.id !== action.payload
+        ))
+      ]
+    },
+    editar: (state, action: PayloadAction<Tarefa>) => {
+      const indexDaTarefa = state.itens.findIndex(
+        (t) => t.id === action.payload.id
+      )
+      if (indexDaTarefa >= 0) {
+        state.itens[indexDaTarefa] = action.payload
+      }
     }
   }
 })
 
-export const { remover } = tarefasSlice.actions
+export const { remover, editar } = tarefasSlice.actions
 
 export default tarefasSlice.reducer
